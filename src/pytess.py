@@ -1,12 +1,10 @@
-from typing import List
-
 import numpy as np
 import pytesseract
 from PIL import Image
 
 
-LANG = None
-TESSERACT_CONFIG = None
+LANG = 'rus+eng'
+TESSERACT_CONFIG = '--psm 7'
 
 
 def recognize_text(image: np.ndarray) -> str:
