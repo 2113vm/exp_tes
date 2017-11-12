@@ -2,15 +2,7 @@ import Levenshtein
 
 
 def text_recognition_score(target_text: str,
-                           predicted_text: str) -> dict:
+                           predicted_text: str) -> tuple:
 
-    metrics = [Levenshtein.ratio, Levenshtein.jaro_winkler]
-
-    scores = []
-
-    for metric in metrics:
-        scores.append(map(lambda pair: metric(*pair),
-                          zip(predicted_text,
-                              target_text)))
-
-    return scores
+    return Levenshtein.ratio(target_text, predicted_text), \
+           Levenshtein.jaro_winkler(target_text, predicted_text)
